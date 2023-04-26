@@ -1,9 +1,10 @@
+fig:figurename
 fig:nice-fig
 tab:nice-tab
 eq:binom
 thm:tri
 about
-usage
+how-it-works
 render-book
 preview-book
 hello-bookdown
@@ -23,5 +24,3 @@ sharing-your-book
 publishing
 pages
 metadata-for-sharing
-how-it-works
-fig:figurename
