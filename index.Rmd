@@ -1,6 +1,6 @@
 --- 
-title: "A Minimal Book Example"
-author: "John Doe"
+title: "ENCOME - Energy Conservation Measure Tool"
+author: "Daniele Antonucci, Ulrich Filippi Oberagger, Olga Somova, Mattia Dallapiccola"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -12,14 +12,23 @@ description: |
   The HTML output format for this example is bookdown::gitbook,
   set in the _output.yml file.
 link-citations: yes
-github-repo: rstudio/bookdown-demo
+github-repo: https://danieleantonucci20.github.io/ENCOME_guidelines/
 ---
+
+
 
 # About
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports; for example, a math equation $a^2 + b^2 = c^2$.
+Increasing the energy efficiency of existing buildings is a priority from three different points of view: the environment, the security of energy supply and the quality of life of citizens. The renovation of existing buildings has a particularly high potential. It is therefore logical, from an economic and operational point of view, to implement appropriate energy saving measures when a building is renovated. The ENergy COnservation MEasure (ENCOME) tool developed by Eurac in different projects (MATRYCS, MODERATE, INFINITE) aims to evaluate the best trad-off between reduction of energy consumption of building and improving comfort, cost of interventions and de-risking on energy efficiency.
 
-## Usage 
+
+## How it works 
+
+```{r figurename, echo=FALSE, fig.cap="Flow-chart of ENCOME tool", out.width = '90%'}
+knitr::include_graphics("image/GeneralSchema.png")
+```
+
+
 
 Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
 
@@ -52,9 +61,16 @@ bookdown::serve_book()
 ```
 
 
+
+
 ```{r include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
+```
+
+```{js, echo = FALSE}
+title=document.getElementById('header');
+title.innerHTML = '<img src="image/ENCOME.png" alt="Test Image">' + title.innerHTML
 ```
