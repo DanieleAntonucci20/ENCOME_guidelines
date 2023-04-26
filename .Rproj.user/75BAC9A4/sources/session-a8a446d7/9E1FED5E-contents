@@ -1,6 +1,6 @@
 --- 
 title: "ENCOME - Energy Conservation Measure Tool"
-author: "Daniele Antonucci, Ulrich Filippi Oberagger, Olga Somova, Mattia Dallapiccola"
+author: "Daniele Antonucci, Ulrich Filippi Oberegger, Olga Somova, Mattia Dallapiccola"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
