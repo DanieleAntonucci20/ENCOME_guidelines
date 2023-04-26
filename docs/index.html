@@ -37,7 +37,7 @@ set in the _output.yml file.</p>" />
   
   
 
-<link rel="next" href="hello-bookdown.html"/>
+<link rel="next" href="building.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -167,14 +167,13 @@ div.csl-indent {
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#how-it-works"><i class="fa fa-check"></i><b>1.1</b> How it works</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="hello-bookdown.html"><a href="hello-bookdown.html"><i class="fa fa-check"></i><b>2</b> Hello bookdown</a>
+<li class="chapter" data-level="2" data-path="building.html"><a href="building.html"><i class="fa fa-check"></i><b>2</b> Building</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="hello-bookdown.html"><a href="hello-bookdown.html#a-section"><i class="fa fa-check"></i><b>2.1</b> A section</a>
+<li class="chapter" data-level="2.1" data-path="building.html"><a href="building.html#add-new-building"><i class="fa fa-check"></i><b>2.1</b> Add new building</a></li>
+<li class="chapter" data-level="2.2" data-path="building.html"><a href="building.html#the-user-can-add-a-new-building-providing-the-following-information"><i class="fa fa-check"></i><b>2.2</b> The user can add a new building providing the following information:</a>
 <ul>
-<li class="chapter" data-level="" data-path="hello-bookdown.html"><a href="hello-bookdown.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
+<li class="chapter" data-level="" data-path="building.html"><a href="building.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>3</b> Cross-references</a>
@@ -228,7 +227,7 @@ div.csl-indent {
 </div>
 <div id="about" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> About<a href="index.html#about" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Increasing the energy efficiency of existing buildings is a priority from three different points of view: the environment, the security of energy supply and the quality of life of citizens. The renovation of existing buildings has a particularly high potential. It is therefore logical, from an economic and operational point of view, to implement appropriate energy saving measures when a building is renovated. The ENergy COnservation MEasure (ENCOME) tool developed by Eurac in different projects (MATRYCS, MODERATE, INFINITE) aims to evaluate the best trad-off between reduction of energy consumption of building and improving comfort, cost of interventions and de-risking on energy efficiency.</p>
+<p>Increasing the energy efficiency of existing buildings is a priority from three different points of view: the environment, the security of energy supply and the quality of life of citizens. The renovation of existing buildings has a particularly high potential. It is therefore logical, from an economic and operational point of view, to implement appropriate energy saving measures when a building is renovated. The ENergy COnservation MEasure (ENCOME) tool developed by Eurac in different projects (MATRYCS, MODERATE, INFINITE) aims to evaluate the best trad-off between reduction of energy consumption of building and improving comfort, cost of interventions and de-risking in energy efficiency.</p>
 <div id="how-it-works" class="section level2 hasAnchor" number="1.1">
 <h2><span class="header-section-number">1.1</span> How it works<a href="index.html#how-it-works" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="figure"><span style="display:block;" id="fig:figurename"></span>
@@ -237,25 +236,31 @@ div.csl-indent {
 Figure 1.1: Flow-chart of ENCOME tool
 </p>
 </div>
-<p>Each <strong>bookdown</strong> chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter <em>must</em> start with a first-level heading: <code># A good chapter</code>, and can contain one (and only one) first-level heading.</p>
-<p>Use second-level and higher headings within chapters like: <code>## A short section</code> or <code>### An even shorter section</code>.</p>
-<p>The <code>index.Rmd</code> file is required, and is also your first book chapter. It will be the homepage when you render the book.</p>
-</div>
-<div id="render-book" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Render book<a href="index.html#render-book" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>You can render the HTML version of this example book without changing anything:</p>
+<p>The tool provides:</p>
 <ol style="list-style-type: decimal">
-<li><p>Find the <strong>Build</strong> pane in the RStudio IDE, and</p></li>
-<li><p>Click on <strong>Build Book</strong>, then select your output format, or select “All formats” if you’d like to use multiple formats from the same book source files.</p></li>
+<li>BUILDING EMERGY SIMULATION</li>
 </ol>
-<p>Or build the book from the R console:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a>bookdown<span class="sc">::</span><span class="fu">render_book</span>()</span></code></pre></div>
-<p>To render this example to PDF as a <code>bookdown::pdf_book</code>, you’ll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <a href="https://yihui.org/tinytex/" class="uri">https://yihui.org/tinytex/</a>.</p>
-</div>
-<div id="preview-book" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Preview book<a href="index.html#preview-book" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in “Preview book”, or from the R console:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="index.html#cb2-1" aria-hidden="true" tabindex="-1"></a>bookdown<span class="sc">::</span><span class="fu">serve_book</span>()</span></code></pre></div>
+<ul>
+<li>the (sensible) energy need for heating and cooling, based on hourly or monthly calculations</li>
+<li>the internal temperature, based on hourly calculations;</li>
+<li>the sensible heating and cooling load, based on hourly calculations;</li>
+</ul>
+<p>trough the implementation of the ISO-52016:2017 calculation.
+The calculation methods can be used for residential or non-residential buildings, or a part of it, referred to as “the building” or the “assessed object”.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>BUILDING ENERGY OPTIMIZATION (ongoing)
+One of the main issue related to building energy simulation is the reduction of the gap between real data and simulated data</li>
+</ol>
+<p>The goal consists in the development of a calibration approach to reduce the differences between building simulation and real monitored data (performance gap) using a Particle Swarm Optimization tool and Genetic algorithm in dynamic building simulation.
+The tools works on some specific factor that affects the calculation of the energy consumption of the building such as the internal radiative and convective heat transfer coefficients.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>ENERGY CONSERVATION MEASUREs</li>
+</ol>
+<p>Based on the simulated and calibrated data, the tool provides the possibility to reduce the energy consumption of the building selecting different ECMs related to facade and energy systems.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>PV SIMULATION AND OPTIMIZATION TOOL
+….</li>
+</ol>
 <script type="text/javascript">
 title=document.getElementById('header');
 title.innerHTML = '<img src="image/ENCOME.png" alt="Test Image">' + title.innerHTML
@@ -269,7 +274,7 @@ title.innerHTML = '<img src="image/ENCOME.png" alt="Test Image">' + title.innerH
         </div>
       </div>
 
-<a href="hello-bookdown.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="building.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

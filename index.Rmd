@@ -15,11 +15,9 @@ link-citations: yes
 github-repo: https://danieleantonucci20.github.io/ENCOME_guidelines/
 ---
 
-
-
 # About
 
-Increasing the energy efficiency of existing buildings is a priority from three different points of view: the environment, the security of energy supply and the quality of life of citizens. The renovation of existing buildings has a particularly high potential. It is therefore logical, from an economic and operational point of view, to implement appropriate energy saving measures when a building is renovated. The ENergy COnservation MEasure (ENCOME) tool developed by Eurac in different projects (MATRYCS, MODERATE, INFINITE) aims to evaluate the best trad-off between reduction of energy consumption of building and improving comfort, cost of interventions and de-risking on energy efficiency.
+Increasing the energy efficiency of existing buildings is a priority from three different points of view: the environment, the security of energy supply and the quality of life of citizens. The renovation of existing buildings has a particularly high potential. It is therefore logical, from an economic and operational point of view, to implement appropriate energy saving measures when a building is renovated. The ENergy COnservation MEasure (ENCOME) tool developed by Eurac in different projects (MATRYCS, MODERATE, INFINITE) aims to evaluate the best trad-off between reduction of energy consumption of building and improving comfort, cost of interventions and de-risking in energy efficiency.
 
 
 ## How it works 
@@ -28,39 +26,29 @@ Increasing the energy efficiency of existing buildings is a priority from three 
 knitr::include_graphics("image/GeneralSchema.png")
 ```
 
+The tool provides: 
 
+1. BUILDING EMERGY SIMULATION
+ 
+ - the (sensible) energy need for heating and cooling, based on hourly or monthly calculations
+ - the internal temperature, based on hourly calculations;
+ - the sensible heating and cooling load, based on hourly calculations;
+ 
+ trough the implementation of the ISO-52016:2017 calculation.
+ The calculation methods can be used for residential or non-residential buildings, or a part of it, referred to as "the building" or the "assessed object".
+ 
+2. BUILDING ENERGY OPTIMIZATION (ongoing)
+One of the main issue related to building energy simulation is the reduction of the gap between real data and simulated data
 
-Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
+The goal consists in the development of a calibration approach to reduce the differences between building simulation and real monitored data (performance gap) using a Particle Swarm Optimization tool and Genetic algorithm in dynamic building simulation. 
+The tools works on some specific factor that affects the calculation of the energy consumption of the building such as the internal radiative and convective heat transfer coefficients.
 
-Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`.
+3. ENERGY CONSERVATION MEASUREs
 
-The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book.
+Based on the simulated and calibrated data, the tool provides the possibility to reduce the energy consumption of the building selecting different ECMs related to facade and energy systems.
 
-## Render book
-
-You can render the HTML version of this example book without changing anything:
-
-1. Find the **Build** pane in the RStudio IDE, and
-
-1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files.
-
-Or build the book from the R console:
-
-```{r, eval=FALSE}
-bookdown::render_book()
-```
-
-To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
-
-## Preview book
-
-As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console:
-
-```{r eval=FALSE}
-bookdown::serve_book()
-```
-
-
+4. PV SIMULATION AND OPTIMIZATION TOOL
+....
 
 
 ```{r include=FALSE}

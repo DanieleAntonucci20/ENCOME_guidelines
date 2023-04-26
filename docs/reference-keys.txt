@@ -5,10 +5,9 @@ eq:binom
 thm:tri
 about
 how-it-works
-render-book
-preview-book
-hello-bookdown
-a-section
+building
+add-new-building
+the-user-can-add-a-new-building-providing-the-following-information
 cross
 chapters-and-sub-chapters
 captioned-figures-and-tables
