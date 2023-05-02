@@ -13,7 +13,12 @@ description: |
   set in the _output.yml file.
 link-citations: yes
 github-repo: https://danieleantonucci20.github.io/ENCOME_guidelines/
+
+
 ---
+
+
+
 
 
 # About
