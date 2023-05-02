@@ -35,14 +35,17 @@ knitr::include_graphics("image/BuildingLists.png")
 
 
 In the audit page the user should provide inputs related to building and systems according to the ISO 52016. Th following 9 cards should be filled: 
-  
-  - **General**: in the general page a summary of the inputs provided during the creation of the building is shown.
+ 
+### General 
+In the general page a summary of the inputs provided during the creation of the building is shown.
 
 ```{r Audit, echo=FALSE, fig.cap="Audit - General Page", out.width = '100%'}
 knitr::include_graphics("image/Audit.png")
 ```
 
-  - **Geometry**: the following information should be provided:
+### Geometry
+
+the following information should be provided:
     - *Perimeter* of the building [m]: it is the length, the linear measurement around an entire building in meter.
     - *Slab-on-ground area*: area of the building in contact to the ground in m^2^
     - *Wall thickness*: Average thickness of the external walls in meter
@@ -53,16 +56,68 @@ knitr::include_graphics("image/Audit.png")
 ```{r Geometry, echo=FALSE, fig.cap="Geometry Page", out.width = '100%'}
 knitr::include_graphics("image/Geometry.png")
 ```
-  
-  - **Envelope**: In this tab all the information related to the properties of the Envelope should be provided.
-    -*Opaque Vertical Components*: For each building exposure it is necessary to select all type of opaque vertical component. 
-    The component is taken from a specific database provided by the tool and can be augmented with user-defined components.  
+
+### Envelope
+
+In this tab all the information related to the properties of the Envelope should be provided.
+ 
+  - *Opaque Vertical Components*: For each building exposure it is necessary to select all type of opaque vertical component. 
+  The component is taken from a specific database provided by the tool and can be augmented with user-defined components.  
     Access to the database can be done directly through the button below : "DB Wall Components" or through the user drop-down menu in the user section at the top of the header:
     *Components* -> *Walls*
 
-```{r OpaqueVert, echo=FALSE, fig.cap="Geometry Page", out.width = '100%'}
+```{r OpaqueVert, echo=FALSE, fig.cap="Opaque Vertical Components Page", out.width = '100%'}
 knitr::include_graphics("image/OpaqueVert.png")
 ```
+
+  - *Transparent Vertical Components*: For each building exposure it is necessary to select all type of transparent vertical component. 
+  The component is taken from a specific database provided by the tool and can be augmented with user-defined components.  
+  Access to the database can be done directly through the button below : "DB Window Components" or through the user drop-down menu in the user section at the top of the header:
+  *Components* -> *Windows*
+
+```{r OpaqueHoriz, echo=FALSE, fig.cap="Opaque Horizontal Components Page", out.width = '100%'}
+knitr::include_graphics("image/OpaqueHoriz.png")
+```
+  - *Opaque Horizontal Components*: For each building exposure it is necessary to select all type of opaque horizontal component. 
+  The component is taken from a specific database provided by the tool and can be augmented with user-defined components.  
+  Access to the database can be done directly through the button below : "DB Floors/Roof" or through the user drop-down menu in the user section at the top of the header:
+  *Components* -> *Roofs and Floors*
+
+### Heating
+
+**Heating - ISO52016**
+
+In the heating system 3 main inputs are required to the user for the calculation of the energy needs:
+
+  - *Power*: Maximum power of the generator
+  - *Set-point*: Internal (minimum intended) operative temperature for the calculation of the energy load or need for heating (i.e 21°C)
+  - *Set-back*: Temperature that the heating system will never fall below (i.e. 10°C)
+```{r Heat1, echo=FALSE, fig.cap="Inputs Heating ISO 52016", out.width = '100%'}
+knitr::include_graphics("image/Heating_units.png")
+``` 
+
+**Heating - UNITS 11300**
+
+The tool calculates the primary energy using the simplified version of the UNI TS 11300. 
+For this calculation the user should provide the efficiency of different subsystems characterizing the heating system (Generation, Distribution, Emission and control).
+```{r Heat2, echo=FALSE, fig.cap="Inputs Heating UNI TS 11300", out.width = '100%'}
+knitr::include_graphics("image/Heating_ISO.png")
+``` 
+
+### Cooling 
+
+**Cooling - ISO52016**
+In the cooling system 3 main inputs are required to the user for the calculation of the energy needs:
+
+  - *Power*: Maximum power of the cooling generator
+  - *Set-point*: Internal (maximum intended) temperature for the calculation of the energy load or need for cooling (i.e 26°C)
+  - *Set-back*: Temperature that the cooling system will never overcome (i.e.30°C)
+
+```{r Cool, echo=FALSE, fig.cap="Inputs Cooling ISO 52016", out.width = '100%'}
+knitr::include_graphics("image/Cooling.png")
+``` 
+
+
 
 
 

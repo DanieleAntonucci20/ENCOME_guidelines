@@ -87,7 +87,14 @@ set in the _output.yml file.</p>" />
 <ul>
 <li class="chapter" data-level="3.1" data-path="building.html"><a href="building.html#add-new-building"><i class="fa fa-check"></i><b>3.1</b> Add new building</a></li>
 <li class="chapter" data-level="3.2" data-path="building.html"><a href="building.html#buildings-list"><i class="fa fa-check"></i><b>3.2</b> Buildings List</a></li>
-<li class="chapter" data-level="3.3" data-path="building.html"><a href="building.html#audit-page"><i class="fa fa-check"></i><b>3.3</b> Audit page</a></li>
+<li class="chapter" data-level="3.3" data-path="building.html"><a href="building.html#audit-page"><i class="fa fa-check"></i><b>3.3</b> Audit page</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="building.html"><a href="building.html#general"><i class="fa fa-check"></i><b>3.3.1</b> General</a></li>
+<li class="chapter" data-level="3.3.2" data-path="building.html"><a href="building.html#geometry"><i class="fa fa-check"></i><b>3.3.2</b> Geometry</a></li>
+<li class="chapter" data-level="3.3.3" data-path="building.html"><a href="building.html#envelope"><i class="fa fa-check"></i><b>3.3.3</b> Envelope</a></li>
+<li class="chapter" data-level="3.3.4" data-path="building.html"><a href="building.html#heating"><i class="fa fa-check"></i><b>3.3.4</b> Heating</a></li>
+<li class="chapter" data-level="3.3.5" data-path="building.html"><a href="building.html#cooling"><i class="fa fa-check"></i><b>3.3.5</b> Cooling</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -147,46 +154,108 @@ Figure 3.3: List of buildings
 <div id="audit-page" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> Audit page<a href="building.html#audit-page" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In the audit page the user should provide inputs related to building and systems according to the ISO 52016. Th following 9 cards should be filled:</p>
-<ul>
-<li><strong>General</strong>: in the general page a summary of the inputs provided during the creation of the building is shown.</li>
-</ul>
+<div id="general" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> General<a href="building.html#general" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In the general page a summary of the inputs provided during the creation of the building is shown.</p>
 <div class="figure"><span style="display:block;" id="fig:Audit"></span>
 <img src="image/Audit.png" alt="Audit - General Page" width="100%" />
 <p class="caption">
 Figure 3.4: Audit - General Page
 </p>
 </div>
-<ul>
-<li><strong>Geometry</strong>: the following information should be provided:
-<ul>
-<li><em>Perimeter</em> of the building [m]: it is the length, the linear measurement around an entire building in meter.</li>
-<li><em>Slab-on-ground area</em>: area of the building in contact to the ground in m<sup>2</sup></li>
-<li><em>Wall thickness</em>: Average thickness of the external walls in meter</li>
-<li><em>Useful building area</em>: total area of all enclosed spaces measured to the internal face of the external walls in in m<sup>2</sup></li>
-<li><em>Building Volume</em>: Volume of the building in in m<sup>3</sup></li>
-<li><em>height</em>: external height of the building in meter</li>
-</ul></li>
-</ul>
+</div>
+<div id="geometry" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Geometry<a href="building.html#geometry" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>the following information should be provided:
+- <em>Perimeter</em> of the building [m]: it is the length, the linear measurement around an entire building in meter.
+- <em>Slab-on-ground area</em>: area of the building in contact to the ground in m<sup>2</sup>
+- <em>Wall thickness</em>: Average thickness of the external walls in meter
+- <em>Useful building area</em>: total area of all enclosed spaces measured to the internal face of the external walls in in m<sup>2</sup>
+- <em>Building Volume</em>: Volume of the building in in m<sup>3</sup>
+- <em>height</em>: external height of the building in meter</p>
 <div class="figure"><span style="display:block;" id="fig:Geometry"></span>
 <img src="image/Geometry.png" alt="Geometry Page" width="100%" />
 <p class="caption">
 Figure 3.5: Geometry Page
 </p>
 </div>
+</div>
+<div id="envelope" class="section level3 hasAnchor" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Envelope<a href="building.html#envelope" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In this tab all the information related to the properties of the Envelope should be provided.</p>
 <ul>
-<li><strong>Envelope</strong>: In this tab all the information related to the properties of the Envelope should be provided.
--<em>Opaque Vertical Components</em>: For each building exposure it is necessary to select all type of opaque vertical component.
+<li><em>Opaque Vertical Components</em>: For each building exposure it is necessary to select all type of opaque vertical component.
 The component is taken from a specific database provided by the tool and can be augmented with user-defined components.<br />
 Access to the database can be done directly through the button below : “DB Wall Components” or through the user drop-down menu in the user section at the top of the header:
 <em>Components</em> -&gt; <em>Walls</em></li>
 </ul>
 <div class="figure"><span style="display:block;" id="fig:OpaqueVert"></span>
-<img src="image/OpaqueVert.png" alt="Geometry Page" width="100%" />
+<img src="image/OpaqueVert.png" alt="Opaque Vertical Components Page" width="100%" />
 <p class="caption">
-Figure 3.6: Geometry Page
+Figure 3.6: Opaque Vertical Components Page
+</p>
+</div>
+<ul>
+<li><em>Transparent Vertical Components</em>: For each building exposure it is necessary to select all type of transparent vertical component.
+The component is taken from a specific database provided by the tool and can be augmented with user-defined components.<br />
+Access to the database can be done directly through the button below : “DB Window Components” or through the user drop-down menu in the user section at the top of the header:
+<em>Components</em> -&gt; <em>Windows</em></li>
+</ul>
+<div class="figure"><span style="display:block;" id="fig:OpaqueHoriz"></span>
+<img src="image/OpaqueHoriz.png" alt="Opaque Horizontal Components Page" width="100%" />
+<p class="caption">
+Figure 3.7: Opaque Horizontal Components Page
+</p>
+</div>
+<ul>
+<li><em>Opaque Horizontal Components</em>: For each building exposure it is necessary to select all type of opaque horizontal component.
+The component is taken from a specific database provided by the tool and can be augmented with user-defined components.<br />
+Access to the database can be done directly through the button below : “DB Floors/Roof” or through the user drop-down menu in the user section at the top of the header:
+<em>Components</em> -&gt; <em>Roofs and Floors</em></li>
+</ul>
+</div>
+<div id="heating" class="section level3 hasAnchor" number="3.3.4">
+<h3><span class="header-section-number">3.3.4</span> Heating<a href="building.html#heating" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Heating - ISO52016</strong></p>
+<p>In the heating system 3 main inputs are required to the user for the calculation of the energy needs:</p>
+<ul>
+<li><em>Power</em>: Maximum power of the generator</li>
+<li><em>Set-point</em>: Internal (minimum intended) operative temperature for the calculation of the energy load or need for heating (i.e 21°C)</li>
+<li><em>Set-back</em>: Temperature that the heating system will never fall below (i.e. 10°C)
+<div class="figure"><span style="display:block;" id="fig:Heat1"></span>
+<img src="image/Heating_units.png" alt="Inputs Heating ISO 52016" width="100%" />
+<p class="caption">
+Figure 3.8: Inputs Heating ISO 52016
+</p>
+</div></li>
+</ul>
+<p><strong>Heating - UNITS 11300</strong></p>
+The tool calculates the primary energy using the simplified version of the UNI TS 11300.
+For this calculation the user should provide the efficiency of different subsystems characterizing the heating system (Generation, Distribution, Emission and control).
+<div class="figure"><span style="display:block;" id="fig:Heat2"></span>
+<img src="image/Heating_ISO.png" alt="Inputs Heating UNI TS 11300" width="100%" />
+<p class="caption">
+Figure 3.9: Inputs Heating UNI TS 11300
+</p>
+</div>
+</div>
+<div id="cooling" class="section level3 hasAnchor" number="3.3.5">
+<h3><span class="header-section-number">3.3.5</span> Cooling<a href="building.html#cooling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Cooling - ISO52016</strong>
+In the cooling system 3 main inputs are required to the user for the calculation of the energy needs:</p>
+<ul>
+<li><em>Power</em>: Maximum power of the cooling generator</li>
+<li><em>Set-point</em>: Internal (maximum intended) temperature for the calculation of the energy load or need for cooling (i.e 26°C)</li>
+<li><em>Set-back</em>: Temperature that the cooling system will never overcome (i.e.30°C)</li>
+</ul>
+<div class="figure"><span style="display:block;" id="fig:Cool"></span>
+<img src="image/Cooling.png" alt="Inputs Cooling ISO 52016" width="100%" />
+<p class="caption">
+Figure 3.10: Inputs Cooling ISO 52016
 </p>
 </div>
 
+</div>
 </div>
 </div>
             </section>

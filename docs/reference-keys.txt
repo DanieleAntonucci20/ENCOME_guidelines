@@ -6,6 +6,10 @@ fig:figurename2
 fig:Audit
 fig:Geometry
 fig:OpaqueVert
+fig:OpaqueHoriz
+fig:Heat1
+fig:Heat2
+fig:Cool
 about
 how-it-works
 interface
@@ -13,3 +17,8 @@ building
 add-new-building
 buildings-list
 audit-page
+general
+geometry
+envelope
+heating
+cooling
