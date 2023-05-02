@@ -24,15 +24,16 @@ knitr::include_graphics("image/Facade1.png")
         
       - **Logout**: disconnection to the application
       
-  2, The **DRAWER**: in the left drawer is it possible to visualize 4 main tool functionality: 
-      - **Home**: Homepage of tool, where the list o buildings are visualized
-      - **Building**: Page with building cards, to be selected for system and building inputs  
-      - **Simulation**: Page with building cards for simulations, calibration,  and visualization of results
-      - **ECM**: Page of building to apply Energy Conservation Measures (ECMs).
-        - **Facade and Systems**: ECM applied to facade and systems. 
-        - **PV Systems**: ECM of Photovoltaic. Where it is possible to simulate and optimize PV plan  
-      
-  3. The **MAIN PAGE**: in the main page the outputs of the tool are visualized,
+  2. The **DRAWER**: in the left drawer is it possible to visualize 4 main tool functionality: 
+    
+        - **Home**: Homepage of tool, where the list o buildings are visualized
+        - **Building**: Page with building cards, to be selected for system and building inputs  
+        - **Simulation**: Page with building cards for simulations, calibration,  and visualization of results
+        - **ECM**: Page of building to apply Energy Conservation Measures (ECMs).
+          - **Facade and Systems**: ECM applied to facade and systems. 
+          - **PV Systems**: ECM of Photovoltaic. Where it is possible to simulate and optimize PV plan  
+        
+  3. The **MAIN PAGE**: in the main page the outputs of the tool are visualized.
   
   
       
