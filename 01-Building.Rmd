@@ -1,0 +1,30 @@
+# Building 
+
+```{r figurename, echo=FALSE, fig.cap="User Buildings", out.width = '90%'}
+knitr::include_graphics("image/Buildings_P1.png")
+```
+
+In the building page the user can visualize and mange all its buildings.
+
+## Add new building
+
+In order to create a new building the following information is required from the user: 
+
+  - **Building Name**: name of the building
+  - **Building Year**: year of construction
+  - **Building Typology**: list of possible building typology (i.e. "school", "residential", "office", etc.)
+  - **Project Name**: Name of the project to which the buildings belongs to.
+  - **Simulation Name**: the building can be simulated several times, if you want to save the different simulations you need to identify it during the creation of the building
+
+<span style="color:red"> **The user should place the building in the map. This step is important to connect the tool to the weather data (connection to PVGIS site https://re.jrc.ec.europa.eu/pvg_tools/en/ )**</span> 
+
+If the building is not placed in the map an error will come up. 
+```{r figurename1, echo=FALSE, fig.cap="Error if building is not placed in a map during the creation", out.width = '90%'}
+knitr::include_graphics("image/Errorbuilding.png")
+```
+
+
+
+
+
+
