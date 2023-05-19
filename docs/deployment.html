@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Deployment | ENCOME - Energy Conservation Measure Tool</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Deployment | ENCOME - Energy Conservation Measure Tool" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="https://danieleantonucci20.github.io/ENCOME_guidelines/" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Deployment | ENCOME - Energy Conservation Measure Tool" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Daniele Antonucci, Ulrich Filippi Oberegger, Olga Somova, Mattia Dallapiccola" />
+
+
+<meta name="date" content="2023-05-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="building.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<H3> GUIDELINES</H3>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> url: your book url like https://bookdown.org/yihui/bookdown</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#how-it-works"><i class="fa fa-check"></i><b>1.1</b> How it works</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="interface.html"><a href="interface.html"><i class="fa fa-check"></i><b>2</b> Interface</a></li>
+<li class="chapter" data-level="3" data-path="building.html"><a href="building.html"><i class="fa fa-check"></i><b>3</b> Building</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="building.html"><a href="building.html#add-new-building"><i class="fa fa-check"></i><b>3.1</b> Add new building</a></li>
+<li class="chapter" data-level="3.2" data-path="building.html"><a href="building.html#buildings-list"><i class="fa fa-check"></i><b>3.2</b> Buildings List</a></li>
+<li class="chapter" data-level="3.3" data-path="building.html"><a href="building.html#audit-page"><i class="fa fa-check"></i><b>3.3</b> Audit page</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="building.html"><a href="building.html#general"><i class="fa fa-check"></i><b>3.3.1</b> General</a></li>
+<li class="chapter" data-level="3.3.2" data-path="building.html"><a href="building.html#geometry"><i class="fa fa-check"></i><b>3.3.2</b> Geometry</a></li>
+<li class="chapter" data-level="3.3.3" data-path="building.html"><a href="building.html#envelope"><i class="fa fa-check"></i><b>3.3.3</b> Envelope</a></li>
+<li class="chapter" data-level="3.3.4" data-path="building.html"><a href="building.html#heating"><i class="fa fa-check"></i><b>3.3.4</b> Heating</a></li>
+<li class="chapter" data-level="3.3.5" data-path="building.html"><a href="building.html#cooling"><i class="fa fa-check"></i><b>3.3.5</b> Cooling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="deployment.html"><a href="deployment.html"><i class="fa fa-check"></i><b>4</b> Deployment</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="deployment.html"><a href="deployment.html#prerequisites"><i class="fa fa-check"></i><b>4.1</b> Prerequisites</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="deployment.html"><a href="deployment.html#gitlab-login"><i class="fa fa-check"></i><b>4.1.1</b> GitLab login</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="deployment.html"><a href="deployment.html#nginx-configuration"><i class="fa fa-check"></i><b>4.2</b> NGINX configuration</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="deployment.html"><a href="deployment.html#update-nginx"><i class="fa fa-check"></i><b>4.2.1</b> Update NGINX</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="deployment.html"><a href="deployment.html#database-configuration"><i class="fa fa-check"></i><b>4.3</b> Database configuration</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="deployment.html"><a href="deployment.html#flask-app"><i class="fa fa-check"></i><b>4.3.1</b> Flask app</a></li>
+<li class="chapter" data-level="4.3.2" data-path="deployment.html"><a href="deployment.html#postgresql-database"><i class="fa fa-check"></i><b>4.3.2</b> PostgreSQL database</a></li>
+<li class="chapter" data-level="4.3.3" data-path="deployment.html"><a href="deployment.html#update-database"><i class="fa fa-check"></i><b>4.3.3</b> Update Database</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="deployment.html"><a href="deployment.html#encome-front-end-and-back-end"><i class="fa fa-check"></i><b>4.4</b> Encome Front-end and Back-end</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="deployment.html"><a href="deployment.html#update-encome-front-end-and-back-end"><i class="fa fa-check"></i><b>4.4.1</b> Update Encome Front-end and Back-end</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="deployment.html"><a href="deployment.html#notes"><i class="fa fa-check"></i><b>4.5</b> Notes</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="deployment.html"><a href="deployment.html#image-versioning"><i class="fa fa-check"></i><b>4.5.1</b> Image Versioning</a></li>
+<li class="chapter" data-level="4.5.2" data-path="deployment.html"><a href="deployment.html#allocated-ports"><i class="fa fa-check"></i><b>4.5.2</b> Allocated Ports</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ENCOME - Energy Conservation Measure Tool</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="deployment" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Deployment<a href="deployment.html#deployment" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The current deployment strategy targets a server or virtual machine (VM) equipped with Docker.</p>
+<p>We use several Docker containers that communicate with each other via external Docker network.</p>
+<p>Actual production server is located at 193.106.181.3.</p>
+<p>Actual production database server is located at xdcren06.eurac.edu.</p>
+<p>Overview:</p>
+<ul>
+<li>Docker container with PostgreSQL dabase (not necessarily running on the same VM)</li>
+<li>Encome app: multiple Docker containers (fron-end, back-end, celery, redis)</li>
+<li>Geoclustering Tool: multiple Docker containers (front-end, back-end, eebdatabase)</li>
+<li>Docker container with NGINX</li>
+<li>all containers(except database if running on external server) use the same Docker network.</li>
+</ul>
+<div id="prerequisites" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Prerequisites<a href="deployment.html#prerequisites" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In order to performe deployment procedure, you need a GitLab account and a Docker installed on your local machine.</p>
+<p>The project repository is located at <a href="https://gitlab.inf.unibz.it/eeb/infinite_bep_52016" class="uri">https://gitlab.inf.unibz.it/eeb/infinite_bep_52016</a>.
+Thereafter, all references to the folders are taken from the root folder of this project.</p>
+<div id="gitlab-login" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> GitLab login<a href="deployment.html#gitlab-login" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We store all Docker images on GitLab registry, so you will need to log in.</p>
+<p>From GitLab, create new Project Access Token and note it somwhere (<a href="https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html" class="uri">https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html</a>).
+From local or server terminal run:</p>
+<pre><code>    docker login gitlab.inf.unibz.it:4567</code></pre>
+<p>Then use your GitLab username and Project Access Token to authenticate.</p>
+</div>
+</div>
+<div id="nginx-configuration" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> NGINX configuration<a href="deployment.html#nginx-configuration" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Since all containers communicate on the same Docker network, we need to create it.</p>
+<p>First, connect to production server. From terminal run:</p>
+<pre><code>    # Exsample: &#39;ssh osomova@193.106.181.3&#39;
+    ssh &lt;your-username&gt;@193.106.181.3</code></pre>
+<p>Create Docker network if not exists:</p>
+<pre><code>    docker network create nginx_network</code></pre>
+<p>Copy ./nginx folder. From local terminal run:</p>
+<pre><code>    rsync -r ./nginx &lt;your-username&gt;@193.106.181.3:/home/&lt;your-username&gt;/ </code></pre>
+<p>Move ./nginx folder to /home/tools.eeb/. From server terminal run:</p>
+<pre><code>    sudo mv nginx /home/tools.eeb/</code></pre>
+<p>Finally, start NGINX container. From server terminal cd into nginx and run:</p>
+<pre><code>    docker-compose up -d --build </code></pre>
+<div id="update-nginx" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Update NGINX<a href="deployment.html#update-nginx" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In order to update NGINX configuration, from server terminal cd into /home/tools.eeb/nginx folder and run:</p>
+<pre><code>    docker-compose down</code></pre>
+<p>Update configurations (synchronize nginx.conf).</p>
+<p>Finally, start container. From server terminal run:</p>
+<pre><code>    docker-compose up -d --build </code></pre>
+</div>
+</div>
+<div id="database-configuration" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Database configuration<a href="deployment.html#database-configuration" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We use PostgreSQL database stored in Docker container.<br />
+See MATRYCS_ECM/frontend/database_connection/readme.md</p>
+<p>Overview:</p>
+<ul>
+<li>Docker container with PostgreSQL database</li>
+<li>Docker container with Flask app used for database definition and migrations</li>
+</ul>
+<div id="flask-app" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Flask app<a href="deployment.html#flask-app" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In order to keep all database schema changes in version control, we use a flask app from ./iso52016_database/migrations_app.</p>
+<p>In models.py you can add/change/delete models corresponding to the database tables.
+See SQlAlchemy (<a href="https://docs.sqlalchemy.org/en/20/dialects/postgresql.html" class="uri">https://docs.sqlalchemy.org/en/20/dialects/postgresql.html</a>)</p>
+<p>Then, you can apply this changes to iso_52106 database:
+See Flask-Migrate (<a href="https://flask-migrate.readthedocs.io/en/latest/" class="uri">https://flask-migrate.readthedocs.io/en/latest/</a>)</p>
+<p>This app will generate migration script that needs to be added to version control.</p>
+</div>
+<div id="postgresql-database" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> PostgreSQL database<a href="deployment.html#postgresql-database" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>First, from local and server terminal login to GitLab (<a href="deployment.html#gitlab-login">4.1.1</a>).</p>
+<p>From local terminal cd into ./iso52016_database/database and run:</p>
+<pre><code>    # build  
+    docker build -t gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/iso_52016:tag .
+
+    # push to registry
+    docker push gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/iso_52016:tag</code></pre>
+<p>Then, from local terminal cd into ./iso52016_database/migration_app and run:</p>
+<pre><code>    # build
+    docker build -t gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/iso_52016_app:tag .
+
+    # push to registry
+    docker push gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/iso_52016_app:tag</code></pre>
+<p>Where tag is defined as in <a href="deployment.html#image-versioning">4.5.1</a></p>
+<p>From ./iso52016_database folder you need to copy:</p>
+<ul>
+<li>scripts folder</li>
+<li>docker-compose.yml (if you run DB on same VM that other containers, add NGINX network)</li>
+<li>db.env file (change password to secure one)</li>
+</ul>
+<p>From local terminal cd into ./iso52016_database and run:</p>
+<pre><code>    rsync -r ./scripts &lt;your-username&gt;@xdcren06.eurac.edu:/home/&lt;your-username&gt;/iso52016_database/
+    rsync docker-compose.yml &lt;your-username&gt;@xdcren06.eurac.edu:/home/&lt;your-username&gt;/iso52016_database/
+    rsync db.env &lt;your-username&gt;@xdcren06.eurac.edu:/home/&lt;your-username&gt;/iso52016_database/</code></pre>
+<p>Move ./iso52016_database folder to /home/tools.eeb/iso52016_database and pull images. From server terminal run:</p>
+<pre><code>    sudo mv iso52016_database /home/tools.eeb/iso52016_database
+
+    # pull from registry
+    docker pull gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/iso_52016:tag
+    docker pull gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/iso_52016_app:tag</code></pre>
+<p>Finally, start Database container. From server terminal cd into ./iso52016_database and run:</p>
+<pre><code>    ./scripts/createdb.sh</code></pre>
+</div>
+<div id="update-database" class="section level3 hasAnchor" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> Update Database<a href="deployment.html#update-database" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In order to update database:</p>
+<p>From local terminal:</p>
+<ul>
+<li>login to GitLab</li>
+<li>build and push iso_52016_app image</li>
+</ul>
+<p>From server terminal:</p>
+<ul>
+<li>login to GitLab</li>
+<li>pull iso_52016_app image</li>
+<li>run update script:<br />
+<code>./scripts/updatedb.sh</code></li>
+</ul>
+</div>
+</div>
+<div id="encome-front-end-and-back-end" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Encome Front-end and Back-end<a href="deployment.html#encome-front-end-and-back-end" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now, we need to build Encome front-end and back-end images.</p>
+<p>First, from local and server terminal login to GitLab (<a href="deployment.html#gitlab-login">4.1.1</a>).</p>
+<p>Then, we start to build Encome’s back-end.
+From local terminal cd into infinite_bep_52016/backend and run:</p>
+<pre><code>    docker build -t gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/encome-backend:tag .</code></pre>
+<p>Build Encome’s front-end. From local terminal cd into MATRYCS_ECM/frontend and run:</p>
+<pre><code>    docker build -t gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/encome-frontend:tag .</code></pre>
+<p>Where tag is defined as in <a href="deployment.html#image-versioning">4.5.1</a></p>
+<p>Once the images are ready, we can push them. From local terminal run:</p>
+<pre><code>    docker push gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/encome-backend:tag
+    docker push gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/encome-frontend:tag</code></pre>
+<p>Then, from production server pull all images:</p>
+<pre><code>    docker pull gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/encome-backend:tag
+    docker pull gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/encome-frontend:tag</code></pre>
+<p>From root folder we need to copy to server:</p>
+<ul>
+<li>docker-compose.yml</li>
+<li>.evn file (generate new secret key)</li>
+</ul>
+<p>So, run:</p>
+<pre><code>    rsync docker-compose.yml &lt;your-username&gt;@193.106.181.3:/home/&lt;your-username&gt;/ 
+    rsync .env &lt;your-username&gt;@193.106.181.3:/home/&lt;your-username&gt;/ </code></pre>
+<p>Move this files to /home/tools.eeb/. From server terminal run:</p>
+<pre><code>    sudo mv docker-compose.yml /home/tools.eeb/
+    sudo mv .env /home/tools.eeb/</code></pre>
+<p>Make sure NGINX and database containers are running.
+Finally, start Encome containers. From server terminal cd into /home/tools.eeb and run:</p>
+<pre><code>    docker-compose up -d --build</code></pre>
+<div id="update-encome-front-end-and-back-end" class="section level3 hasAnchor" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Update Encome Front-end and Back-end<a href="deployment.html#update-encome-front-end-and-back-end" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In order to update Encome’s front-end or back-end:</p>
+<p>From local terminal:</p>
+<ul>
+<li>login to GitLab</li>
+<li>build fronted or/and backend image/s</li>
+<li>push image/s to GitLab</li>
+</ul>
+<p>From server terminal:</p>
+<ul>
+<li>login to GitLab</li>
+<li>stop Encome running containers.
+From /home/tools.eeb run:
+<code>docker-compose stop</code></li>
+<li>update tag in docker-compose.yml file</li>
+<li>finally, start containers. From /home/tools.eeb run:
+<code>docker-compose up -d</code></li>
+</ul>
+</div>
+</div>
+<div id="notes" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Notes<a href="deployment.html#notes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Some useful information.</p>
+<div id="image-versioning" class="section level3 hasAnchor" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> Image Versioning<a href="deployment.html#image-versioning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>All Docker images are tagged. The tag is defined as major.minor.bugfix.
+Exsample: 0.1.0</p>
+<p>Thereafter, in all commands you have to replace ‘tag’ with the appropriate one.
+Exsample:
+New version contains bugfix, so tag changes from 1.2.6 to 1.2.7:</p>
+<pre><code>    # instead of
+    #    docker push gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/encome-backend:tag
+    # you have to run 
+    docker push gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/encome-backend:1.2.7</code></pre>
+</div>
+<div id="allocated-ports" class="section level3 hasAnchor" number="4.5.2">
+<h3><span class="header-section-number">4.5.2</span> Allocated Ports<a href="deployment.html#allocated-ports" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>80 -&gt; NGINX (to be moved to 443)</li>
+<li>15432 -&gt; PostgreSQL database</li>
+<li>8000 -&gt; Encome backend</li>
+<li>8050 -&gt; Encome frontend</li>
+<li>5555 -&gt; Encome celery</li>
+<li>6379 -&gt; Encome redis</li>
+<li>8081 -&gt; Geoapp eebdatabase</li>
+<li>5000 -&gt; Geoapp fronted</li>
+<li>8086 -&gt; Geoapp backend
+<!-- - 8089 -> GdynaApp --></li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="building.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-Deployment.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["ENCOME_guidelines.pdf", "ENCOME_guidelines.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

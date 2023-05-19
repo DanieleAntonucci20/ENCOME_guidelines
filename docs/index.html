@@ -8,7 +8,7 @@
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="ENCOME - Energy Conservation Measure Tool" />
   <meta property="og:type" content="book" />
@@ -29,7 +29,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Daniele Antonucci, Ulrich Filippi Oberegger, Olga Somova, Mattia Dallapiccola" />
 
 
-<meta name="date" content="2023-05-02" />
+<meta name="date" content="2023-05-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -61,6 +61,10 @@ set in the _output.yml file.</p>" />
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -96,6 +100,32 @@ set in the _output.yml file.</p>" />
 <li class="chapter" data-level="3.3.5" data-path="building.html"><a href="building.html#cooling"><i class="fa fa-check"></i><b>3.3.5</b> Cooling</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="4" data-path="deployment.html"><a href="deployment.html"><i class="fa fa-check"></i><b>4</b> Deployment</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="deployment.html"><a href="deployment.html#prerequisites"><i class="fa fa-check"></i><b>4.1</b> Prerequisites</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="deployment.html"><a href="deployment.html#gitlab-login"><i class="fa fa-check"></i><b>4.1.1</b> GitLab login</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="deployment.html"><a href="deployment.html#nginx-configuration"><i class="fa fa-check"></i><b>4.2</b> NGINX configuration</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="deployment.html"><a href="deployment.html#update-nginx"><i class="fa fa-check"></i><b>4.2.1</b> Update NGINX</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="deployment.html"><a href="deployment.html#database-configuration"><i class="fa fa-check"></i><b>4.3</b> Database configuration</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="deployment.html"><a href="deployment.html#flask-app"><i class="fa fa-check"></i><b>4.3.1</b> Flask app</a></li>
+<li class="chapter" data-level="4.3.2" data-path="deployment.html"><a href="deployment.html#postgresql-database"><i class="fa fa-check"></i><b>4.3.2</b> PostgreSQL database</a></li>
+<li class="chapter" data-level="4.3.3" data-path="deployment.html"><a href="deployment.html#update-database"><i class="fa fa-check"></i><b>4.3.3</b> Update Database</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="deployment.html"><a href="deployment.html#encome-front-end-and-back-end"><i class="fa fa-check"></i><b>4.4</b> Encome Front-end and Back-end</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="deployment.html"><a href="deployment.html#update-encome-front-end-and-back-end"><i class="fa fa-check"></i><b>4.4.1</b> Update Encome Front-end and Back-end</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="deployment.html"><a href="deployment.html#notes"><i class="fa fa-check"></i><b>4.5</b> Notes</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="deployment.html"><a href="deployment.html#image-versioning"><i class="fa fa-check"></i><b>4.5.1</b> Image Versioning</a></li>
+<li class="chapter" data-level="4.5.2" data-path="deployment.html"><a href="deployment.html#allocated-ports"><i class="fa fa-check"></i><b>4.5.2</b> Allocated Ports</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -116,7 +146,7 @@ set in the _output.yml file.</p>" />
 <div id="header">
 <h1 class="title">ENCOME - Energy Conservation Measure Tool</h1>
 <p class="author"><em>Daniele Antonucci, Ulrich Filippi Oberegger, Olga Somova, Mattia Dallapiccola</em></p>
-<p class="date"><em>2023-05-02</em></p>
+<p class="date"><em>2023-05-19</em></p>
 </div>
 <div id="about" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> About<a href="index.html#about" class="anchor-section" aria-label="Anchor link to header"></a></h1>

@@ -8,7 +8,7 @@
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Building | ENCOME - Energy Conservation Measure Tool" />
   <meta property="og:type" content="book" />
@@ -29,7 +29,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Daniele Antonucci, Ulrich Filippi Oberegger, Olga Somova, Mattia Dallapiccola" />
 
 
-<meta name="date" content="2023-05-02" />
+<meta name="date" content="2023-05-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -37,7 +37,7 @@ set in the _output.yml file.</p>" />
   
   
 <link rel="prev" href="interface.html"/>
-
+<link rel="next" href="deployment.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -61,6 +61,10 @@ set in the _output.yml file.</p>" />
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -94,6 +98,32 @@ set in the _output.yml file.</p>" />
 <li class="chapter" data-level="3.3.3" data-path="building.html"><a href="building.html#envelope"><i class="fa fa-check"></i><b>3.3.3</b> Envelope</a></li>
 <li class="chapter" data-level="3.3.4" data-path="building.html"><a href="building.html#heating"><i class="fa fa-check"></i><b>3.3.4</b> Heating</a></li>
 <li class="chapter" data-level="3.3.5" data-path="building.html"><a href="building.html#cooling"><i class="fa fa-check"></i><b>3.3.5</b> Cooling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="deployment.html"><a href="deployment.html"><i class="fa fa-check"></i><b>4</b> Deployment</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="deployment.html"><a href="deployment.html#prerequisites"><i class="fa fa-check"></i><b>4.1</b> Prerequisites</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="deployment.html"><a href="deployment.html#gitlab-login"><i class="fa fa-check"></i><b>4.1.1</b> GitLab login</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="deployment.html"><a href="deployment.html#nginx-configuration"><i class="fa fa-check"></i><b>4.2</b> NGINX configuration</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="deployment.html"><a href="deployment.html#update-nginx"><i class="fa fa-check"></i><b>4.2.1</b> Update NGINX</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="deployment.html"><a href="deployment.html#database-configuration"><i class="fa fa-check"></i><b>4.3</b> Database configuration</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="deployment.html"><a href="deployment.html#flask-app"><i class="fa fa-check"></i><b>4.3.1</b> Flask app</a></li>
+<li class="chapter" data-level="4.3.2" data-path="deployment.html"><a href="deployment.html#postgresql-database"><i class="fa fa-check"></i><b>4.3.2</b> PostgreSQL database</a></li>
+<li class="chapter" data-level="4.3.3" data-path="deployment.html"><a href="deployment.html#update-database"><i class="fa fa-check"></i><b>4.3.3</b> Update Database</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="deployment.html"><a href="deployment.html#encome-front-end-and-back-end"><i class="fa fa-check"></i><b>4.4</b> Encome Front-end and Back-end</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="deployment.html"><a href="deployment.html#update-encome-front-end-and-back-end"><i class="fa fa-check"></i><b>4.4.1</b> Update Encome Front-end and Back-end</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="deployment.html"><a href="deployment.html#notes"><i class="fa fa-check"></i><b>4.5</b> Notes</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="deployment.html"><a href="deployment.html#image-versioning"><i class="fa fa-check"></i><b>4.5.1</b> Image Versioning</a></li>
+<li class="chapter" data-level="4.5.2" data-path="deployment.html"><a href="deployment.html#allocated-ports"><i class="fa fa-check"></i><b>4.5.2</b> Allocated Ports</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -263,8 +293,8 @@ Figure 3.10: Inputs Cooling ISO 52016
           </div>
         </div>
       </div>
-<a href="interface.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="interface.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="deployment.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
