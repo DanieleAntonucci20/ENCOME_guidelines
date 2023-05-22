@@ -1,3 +1,7 @@
+```{r klippy, echo=FALSE, include=TRUE}
+klippy::klippy()
+```
+
 # Deployment 
 
 The current deployment strategy targets a server or virtual machine (VM) equipped with Docker.
@@ -10,15 +14,14 @@ Actual production database server is located at xdcren06.eurac.edu.
 
 Overview:
 
-  - Docker container with PostgreSQL dabase (not necessarily running on the same VM)
-  - Encome app: multiple Docker containers (fron-end, back-end, celery, redis) 
-  - Geoclustering Tool: multiple Docker containers (front-end, back-end, eebdatabase)
+  - Docker container with PostgreSQL database (not necessarily running on the same VM)
+  - Encome app: multiple Docker containers (front-end, back-end, celery, redis) 
   - Docker container with NGINX
   - all containers(except database if running on external server) use the same Docker network.
 
 
 ## Prerequisites
-In order to performe deployment procedure, you need a GitLab account and a Docker installed on your local machine. 
+In order to perform deployment procedure, you need a GitLab account and a Docker installed on your local machine. 
 
 
 The project repository is located at https://gitlab.inf.unibz.it/eeb/infinite_bep_52016.
@@ -27,11 +30,13 @@ Thereafter, all references to the folders are taken from the root folder of this
 ### GitLab login
 We store all Docker images on GitLab registry, so you will need to log in.
 
-From GitLab, create new Project Access Token and note it somwhere (https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html).
+From GitLab, create new Project Access Token and note it somewhere (https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html).
 From local or server terminal run: 
+
+```{r eval=FALSE, include=TRUE}
+  docker login gitlab.inf.unibz.it:4567
 ```
-    docker login gitlab.inf.unibz.it:4567
-```
+
 Then use your GitLab username and Project Access Token to authenticate. 
 
 
@@ -39,36 +44,37 @@ Then use your GitLab username and Project Access Token to authenticate.
 Since all containers communicate on the same Docker network, we need to create it.
 
 First, connect to production server. From terminal run:
+```{r eval=FALSE, include=TRUE}
+    ssh <username>@193.106.181.3
+```
 ```
     # Exsample: 'ssh osomova@193.106.181.3'
-    ssh <your-username>@193.106.181.3
 ```
-
 
 Create Docker network if not exists:
-```
+```{r eval=FALSE, include=TRUE}
     docker network create nginx_network
 ```
 
 Copy ./nginx folder. From local terminal run:
-```
-    rsync -r ./nginx <your-username>@193.106.181.3:/home/<your-username>/ 
+```{r eval=FALSE, include=TRUE}
+    rsync -r ./nginx <username>@193.106.181.3:/home/<username>/ 
 ```
 
 Move ./nginx folder to /home/tools.eeb/. From server terminal run:
-```
+```{r eval=FALSE, include=TRUE}
     sudo mv nginx /home/tools.eeb/
 ```
 
 Finally, start NGINX container. From server terminal cd into nginx and run: 
-```
+```{r eval=FALSE, include=TRUE}
     docker-compose up -d --build 
 ```
 
 
 ### Update NGINX
 In order to update NGINX configuration, from server terminal cd into /home/tools.eeb/nginx folder and run:
-```
+```{r eval=FALSE, include=TRUE}
     docker-compose down
 ```
 
@@ -76,7 +82,7 @@ Update configurations (synchronize nginx.conf).
 
 Finally, start container. From server terminal run:
 
-```
+```{r eval=FALSE, include=TRUE}
     docker-compose up -d --build 
 ```
 
@@ -106,23 +112,21 @@ This app will generate migration script that needs to be added to version contro
 
 ### PostgreSQL database
 
-First, from local and server terminal login to GitLab (\@ref(gitlab-login)).
+First, from local and server terminal log in to GitLab (\@ref(gitlab-login)).
 
-From local terminal cd into ./iso52016_database/database and run:
-``` 
-    # build  
+Now, let's build and push database image. From local terminal cd into ./iso52016_database/database and run:
+``` {r eval=FALSE, include=TRUE}
     docker build -t gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/iso_52016:tag .
-
-    # push to registry
+```
+```{r eval=FALSE, include=TRUE}
     docker push gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/iso_52016:tag
 ```
 
-Then, from local terminal cd into ./iso52016_database/migration_app and run:
-```
-    # build
+Then, let's build and push migration app image. From local terminal cd into ./iso52016_database/migration_app and run:
+```{r eval=FALSE, include=TRUE}
     docker build -t gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/iso_52016_app:tag .
-
-    # push to registry
+```
+```{r eval=FALSE, include=TRUE}
     docker push gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/iso_52016_app:tag
 ```
 Where tag is defined as in \@ref(image-versioning)
@@ -135,23 +139,29 @@ From ./iso52016_database folder you need to copy:
   - db.env file (change password to secure one)
 
 From local terminal cd into ./iso52016_database and run:
+```{r eval=FALSE, include=TRUE}
+    rsync -r ./scripts <username>@xdcren06.eurac.edu:/home/<username>/iso52016_database/
 ```
-    rsync -r ./scripts <your-username>@xdcren06.eurac.edu:/home/<your-username>/iso52016_database/
-    rsync docker-compose.yml <your-username>@xdcren06.eurac.edu:/home/<your-username>/iso52016_database/
-    rsync db.env <your-username>@xdcren06.eurac.edu:/home/<your-username>/iso52016_database/
+```{r eval=FALSE, include=TRUE}
+    rsync docker-compose.yml <username>@xdcren06.eurac.edu:/home/<username>/iso52016_database/
+```
+```{r eval=FALSE, include=TRUE}
+    rsync db.env <username>@xdcren06.eurac.edu:/home/<username>/iso52016_database/
 ```
 
 Move ./iso52016_database folder to /home/tools.eeb/iso52016_database and pull images. From server terminal run:
-```
+```{r eval=FALSE, include=TRUE}
     sudo mv iso52016_database /home/tools.eeb/iso52016_database
-
-    # pull from registry
+```
+```{r eval=FALSE, include=TRUE}
     docker pull gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/iso_52016:tag
+```
+```{r eval=FALSE, include=TRUE}
     docker pull gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/iso_52016_app:tag
 ```
 
 Finally, start Database container. From server terminal cd into ./iso52016_database and run:
-```
+```{r eval=FALSE, include=TRUE}
     ./scripts/createdb.sh
 ```
 
@@ -161,15 +171,15 @@ In order to update database:
 
 From local terminal:
 
-  - login to GitLab
+  - log in to GitLab
   - build and push iso_52016_app image
 
 From server terminal:
 
-  - login to GitLab
+  - log in to GitLab
   - pull iso_52016_app image
   - run update script:    
-    ```
+    ```{r eval=FALSE, include=TRUE}
       ./scripts/updatedb.sh
     ```
 
@@ -178,30 +188,34 @@ From server terminal:
 
 Now, we need to build Encome front-end and back-end images.
 
-First, from local and server terminal login to GitLab (\@ref(gitlab-login)).
+First, from local and server terminal log in to GitLab (\@ref(gitlab-login)).
 
 Then, we start to build Encome's back-end. 
 From local terminal cd into infinite_bep_52016/backend and run:
-``` 
+``` {r eval=FALSE, include=TRUE}
     docker build -t gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/encome-backend:tag .
 ```
 
 Build Encome's front-end. From local terminal cd into MATRYCS_ECM/frontend and run:
-```
+```{r eval=FALSE, include=TRUE}
     docker build -t gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/encome-frontend:tag .
 ```
 Where tag is defined as in \@ref(image-versioning)
 
 Once the images are ready, we can push them. From local terminal run:
-```
+```{r eval=FALSE, include=TRUE}
     docker push gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/encome-backend:tag
+```
+```{r eval=FALSE, include=TRUE}
     docker push gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/encome-frontend:tag
 ```
 
 
 Then, from production server pull all images:
-```
+```{r eval=FALSE, include=TRUE}
     docker pull gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/encome-backend:tag
+```
+```{r eval=FALSE, include=TRUE}
     docker pull gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/encome-frontend:tag
 ```
 
@@ -211,20 +225,24 @@ From root folder we need to copy to server:
   - .evn file (generate new secret key)
 
 So, run:
+```{r eval=FALSE, include=TRUE}
+    rsync docker-compose.yml <username>@193.106.181.3:/home/<username>/ 
 ```
-    rsync docker-compose.yml <your-username>@193.106.181.3:/home/<your-username>/ 
-    rsync .env <your-username>@193.106.181.3:/home/<your-username>/ 
+```{r eval=FALSE, include=TRUE}
+    rsync .env <username>@193.106.181.3:/home/<username>/ 
 ```
 
 Move this files to /home/tools.eeb/. From server terminal run:
-```
+```{r eval=FALSE, include=TRUE}
     sudo mv docker-compose.yml /home/tools.eeb/
+```
+```{r eval=FALSE, include=TRUE}
     sudo mv .env /home/tools.eeb/
 ```
 
 Make sure NGINX and database containers are running. 
 Finally, start Encome containers. From server terminal cd into /home/tools.eeb and run:
-```
+```{r eval=FALSE, include=TRUE}
     docker-compose up -d --build
 ```
 
@@ -234,21 +252,21 @@ In order to update Encome's front-end or back-end:
 
 From local terminal:
 
-  - login to GitLab
-  - build fronted or/and backend image/s
+  - log in to GitLab
+  - build front-end or/and back-end image/s
   - push image/s to GitLab
 
 From server terminal:
 
-  - login to GitLab
+  - log in to GitLab
   - stop Encome running containers. 
     From /home/tools.eeb run: 
-    ```
+    ```{r eval=FALSE, include=TRUE}
         docker-compose stop
     ```
   - update tag in docker-compose.yml file
   - finally, start containers. From /home/tools.eeb run:
-    ```
+    ```{r eval=FALSE, include=TRUE}
         docker-compose up -d
     ```
 
@@ -258,10 +276,10 @@ Some useful information.
 
 ### Image Versioning
 All Docker images are tagged. The tag is defined as major.minor.bugfix. 
-Exsample: 0.1.0
+Example: 0.1.0
 
 Thereafter, in all commands you have to replace 'tag' with the appropriate one.
-Exsample: 
+Example: 
 New version contains bugfix, so tag changes from 1.2.6 to 1.2.7: 
 ```
     # instead of
@@ -275,12 +293,12 @@ New version contains bugfix, so tag changes from 1.2.6 to 1.2.7:
 
   - 80 -> NGINX (to be moved to 443)
   - 15432 -> PostgreSQL database
-  - 8000 -> Encome backend
-  - 8050 -> Encome frontend
+  - 8000 -> Encome back-end
+  - 8050 -> Encome front-end
   - 5555 -> Encome celery
   - 6379 -> Encome redis
   - 8081 -> Geoapp eebdatabase
-  - 5000 -> Geoapp fronted
-  - 8086 -> Geoapp backend
-  <!-- - 8089 -> GdynaApp -->
+  - 5000 -> Geoapp front-end
+  - 8086 -> Geoapp back-end
+  - 8089 -> GdynaApp
 

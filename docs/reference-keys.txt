@@ -36,4 +36,3 @@ update-encome-front-end-and-back-end
 notes
 image-versioning
 allocated-ports
-url-your-book-url-like-httpsbookdown.orgyihuibookdown

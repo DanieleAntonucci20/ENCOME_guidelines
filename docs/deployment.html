@@ -29,7 +29,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Daniele Antonucci, Ulrich Filippi Oberegger, Olga Somova, Mattia Dallapiccola" />
 
 
-<meta name="date" content="2023-05-19" />
+<meta name="date" content="2023-05-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -58,8 +58,76 @@ set in the _output.yml file.</p>" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
+<link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
+<link href="libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
+<script src="libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
   
@@ -82,7 +150,7 @@ set in the _output.yml file.</p>" />
 <H3> GUIDELINES</H3>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> url: your book url like https://bookdown.org/yihui/bookdown</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#how-it-works"><i class="fa fa-check"></i><b>1.1</b> How it works</a></li>
 </ul></li>
@@ -151,23 +219,22 @@ set in the _output.yml file.</p>" />
 <p>Actual production database server is located at xdcren06.eurac.edu.</p>
 <p>Overview:</p>
 <ul>
-<li>Docker container with PostgreSQL dabase (not necessarily running on the same VM)</li>
-<li>Encome app: multiple Docker containers (fron-end, back-end, celery, redis)</li>
-<li>Geoclustering Tool: multiple Docker containers (front-end, back-end, eebdatabase)</li>
+<li>Docker container with PostgreSQL database (not necessarily running on the same VM)</li>
+<li>Encome app: multiple Docker containers (front-end, back-end, celery, redis)</li>
 <li>Docker container with NGINX</li>
 <li>all containers(except database if running on external server) use the same Docker network.</li>
 </ul>
 <div id="prerequisites" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Prerequisites<a href="deployment.html#prerequisites" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In order to performe deployment procedure, you need a GitLab account and a Docker installed on your local machine.</p>
+<p>In order to perform deployment procedure, you need a GitLab account and a Docker installed on your local machine.</p>
 <p>The project repository is located at <a href="https://gitlab.inf.unibz.it/eeb/infinite_bep_52016" class="uri">https://gitlab.inf.unibz.it/eeb/infinite_bep_52016</a>.
 Thereafter, all references to the folders are taken from the root folder of this project.</p>
 <div id="gitlab-login" class="section level3 hasAnchor" number="4.1.1">
 <h3><span class="header-section-number">4.1.1</span> GitLab login<a href="deployment.html#gitlab-login" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We store all Docker images on GitLab registry, so you will need to log in.</p>
-<p>From GitLab, create new Project Access Token and note it somwhere (<a href="https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html" class="uri">https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html</a>).
+<p>From GitLab, create new Project Access Token and note it somewhere (<a href="https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html" class="uri">https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html</a>).
 From local or server terminal run:</p>
-<pre><code>    docker login gitlab.inf.unibz.it:4567</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="deployment.html#cb1-1" aria-hidden="true" tabindex="-1"></a>  docker login gitlab.inf.unibz.it<span class="sc">:</span><span class="dv">4567</span></span></code></pre></div>
 <p>Then use your GitLab username and Project Access Token to authenticate.</p>
 </div>
 </div>
@@ -175,23 +242,23 @@ From local or server terminal run:</p>
 <h2><span class="header-section-number">4.2</span> NGINX configuration<a href="deployment.html#nginx-configuration" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Since all containers communicate on the same Docker network, we need to create it.</p>
 <p>First, connect to production server. From terminal run:</p>
-<pre><code>    # Exsample: &#39;ssh osomova@193.106.181.3&#39;
-    ssh &lt;your-username&gt;@193.106.181.3</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="deployment.html#cb2-1" aria-hidden="true" tabindex="-1"></a>    ssh <span class="sc">&lt;</span>username<span class="sc">&gt;</span><span class="er">@</span><span class="dv">193</span>.<span class="dv">106</span>.<span class="fl">181.3</span></span></code></pre></div>
+<pre><code>    # Exsample: &#39;ssh osomova@193.106.181.3&#39;</code></pre>
 <p>Create Docker network if not exists:</p>
-<pre><code>    docker network create nginx_network</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="deployment.html#cb4-1" aria-hidden="true" tabindex="-1"></a>    docker network create nginx_network</span></code></pre></div>
 <p>Copy ./nginx folder. From local terminal run:</p>
-<pre><code>    rsync -r ./nginx &lt;your-username&gt;@193.106.181.3:/home/&lt;your-username&gt;/ </code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="deployment.html#cb5-1" aria-hidden="true" tabindex="-1"></a>    rsync <span class="sc">-</span>r .<span class="sc">/</span>nginx <span class="sc">&lt;</span>username<span class="sc">&gt;</span><span class="er">@</span><span class="dv">193</span>.<span class="dv">106</span>.<span class="fl">181.3</span><span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span><span class="er">&lt;</span>username<span class="sc">&gt;</span><span class="er">/</span> </span></code></pre></div>
 <p>Move ./nginx folder to /home/tools.eeb/. From server terminal run:</p>
-<pre><code>    sudo mv nginx /home/tools.eeb/</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="deployment.html#cb6-1" aria-hidden="true" tabindex="-1"></a>    sudo mv nginx <span class="sc">/</span>home<span class="sc">/</span>tools.eeb<span class="sc">/</span></span></code></pre></div>
 <p>Finally, start NGINX container. From server terminal cd into nginx and run:</p>
-<pre><code>    docker-compose up -d --build </code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="deployment.html#cb7-1" aria-hidden="true" tabindex="-1"></a>    docker<span class="sc">-</span>compose up <span class="sc">-</span>d <span class="sc">--</span>build </span></code></pre></div>
 <div id="update-nginx" class="section level3 hasAnchor" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> Update NGINX<a href="deployment.html#update-nginx" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In order to update NGINX configuration, from server terminal cd into /home/tools.eeb/nginx folder and run:</p>
-<pre><code>    docker-compose down</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="deployment.html#cb8-1" aria-hidden="true" tabindex="-1"></a>    docker<span class="sc">-</span>compose down</span></code></pre></div>
 <p>Update configurations (synchronize nginx.conf).</p>
 <p>Finally, start container. From server terminal run:</p>
-<pre><code>    docker-compose up -d --build </code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="deployment.html#cb9-1" aria-hidden="true" tabindex="-1"></a>    docker<span class="sc">-</span>compose up <span class="sc">-</span>d <span class="sc">--</span>build </span></code></pre></div>
 </div>
 </div>
 <div id="database-configuration" class="section level2 hasAnchor" number="4.3">
@@ -214,19 +281,13 @@ See Flask-Migrate (<a href="https://flask-migrate.readthedocs.io/en/latest/" cla
 </div>
 <div id="postgresql-database" class="section level3 hasAnchor" number="4.3.2">
 <h3><span class="header-section-number">4.3.2</span> PostgreSQL database<a href="deployment.html#postgresql-database" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>First, from local and server terminal login to GitLab (<a href="deployment.html#gitlab-login">4.1.1</a>).</p>
-<p>From local terminal cd into ./iso52016_database/database and run:</p>
-<pre><code>    # build  
-    docker build -t gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/iso_52016:tag .
-
-    # push to registry
-    docker push gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/iso_52016:tag</code></pre>
-<p>Then, from local terminal cd into ./iso52016_database/migration_app and run:</p>
-<pre><code>    # build
-    docker build -t gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/iso_52016_app:tag .
-
-    # push to registry
-    docker push gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/iso_52016_app:tag</code></pre>
+<p>First, from local and server terminal log in to GitLab (<a href="deployment.html#gitlab-login">4.1.1</a>).</p>
+<p>Now, let’s build and push database image. From local terminal cd into ./iso52016_database/database and run:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="deployment.html#cb10-1" aria-hidden="true" tabindex="-1"></a>    docker build <span class="sc">-</span>t gitlab.inf.unibz.it<span class="sc">:</span><span class="dv">4567</span><span class="sc">/</span>eeb<span class="sc">/</span>infinite_bep_52016<span class="sc">/</span>iso_52016<span class="sc">:</span>tag .</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="deployment.html#cb11-1" aria-hidden="true" tabindex="-1"></a>    docker push gitlab.inf.unibz.it<span class="sc">:</span><span class="dv">4567</span><span class="sc">/</span>eeb<span class="sc">/</span>infinite_bep_52016<span class="sc">/</span>iso_52016<span class="sc">:</span>tag</span></code></pre></div>
+<p>Then, let’s build and push migration app image. From local terminal cd into ./iso52016_database/migration_app and run:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="deployment.html#cb12-1" aria-hidden="true" tabindex="-1"></a>    docker build <span class="sc">-</span>t gitlab.inf.unibz.it<span class="sc">:</span><span class="dv">4567</span><span class="sc">/</span>eeb<span class="sc">/</span>infinite_bep_52016<span class="sc">/</span>iso_52016_app<span class="sc">:</span>tag .</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="deployment.html#cb13-1" aria-hidden="true" tabindex="-1"></a>    docker push gitlab.inf.unibz.it<span class="sc">:</span><span class="dv">4567</span><span class="sc">/</span>eeb<span class="sc">/</span>infinite_bep_52016<span class="sc">/</span>iso_52016_app<span class="sc">:</span>tag</span></code></pre></div>
 <p>Where tag is defined as in <a href="deployment.html#image-versioning">4.5.1</a></p>
 <p>From ./iso52016_database folder you need to copy:</p>
 <ul>
@@ -235,83 +296,81 @@ See Flask-Migrate (<a href="https://flask-migrate.readthedocs.io/en/latest/" cla
 <li>db.env file (change password to secure one)</li>
 </ul>
 <p>From local terminal cd into ./iso52016_database and run:</p>
-<pre><code>    rsync -r ./scripts &lt;your-username&gt;@xdcren06.eurac.edu:/home/&lt;your-username&gt;/iso52016_database/
-    rsync docker-compose.yml &lt;your-username&gt;@xdcren06.eurac.edu:/home/&lt;your-username&gt;/iso52016_database/
-    rsync db.env &lt;your-username&gt;@xdcren06.eurac.edu:/home/&lt;your-username&gt;/iso52016_database/</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="deployment.html#cb14-1" aria-hidden="true" tabindex="-1"></a>    rsync <span class="sc">-</span>r .<span class="sc">/</span>scripts <span class="sc">&lt;</span>username<span class="sc">&gt;</span><span class="er">@</span>xdcren06.eurac.edu<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span><span class="er">&lt;</span>username<span class="sc">&gt;</span><span class="er">/</span>iso52016_database<span class="sc">/</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="deployment.html#cb15-1" aria-hidden="true" tabindex="-1"></a>    rsync docker<span class="sc">-</span>compose.yml <span class="sc">&lt;</span>username<span class="sc">&gt;</span><span class="er">@</span>xdcren06.eurac.edu<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span><span class="er">&lt;</span>username<span class="sc">&gt;</span><span class="er">/</span>iso52016_database<span class="sc">/</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="deployment.html#cb16-1" aria-hidden="true" tabindex="-1"></a>    rsync db.env <span class="sc">&lt;</span>username<span class="sc">&gt;</span><span class="er">@</span>xdcren06.eurac.edu<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span><span class="er">&lt;</span>username<span class="sc">&gt;</span><span class="er">/</span>iso52016_database<span class="sc">/</span></span></code></pre></div>
 <p>Move ./iso52016_database folder to /home/tools.eeb/iso52016_database and pull images. From server terminal run:</p>
-<pre><code>    sudo mv iso52016_database /home/tools.eeb/iso52016_database
-
-    # pull from registry
-    docker pull gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/iso_52016:tag
-    docker pull gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/iso_52016_app:tag</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="deployment.html#cb17-1" aria-hidden="true" tabindex="-1"></a>    sudo mv iso52016_database <span class="sc">/</span>home<span class="sc">/</span>tools.eeb<span class="sc">/</span>iso52016_database</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="deployment.html#cb18-1" aria-hidden="true" tabindex="-1"></a>    docker pull gitlab.inf.unibz.it<span class="sc">:</span><span class="dv">4567</span><span class="sc">/</span>eeb<span class="sc">/</span>infinite_bep_52016<span class="sc">/</span>iso_52016<span class="sc">:</span>tag</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="deployment.html#cb19-1" aria-hidden="true" tabindex="-1"></a>    docker pull gitlab.inf.unibz.it<span class="sc">:</span><span class="dv">4567</span><span class="sc">/</span>eeb<span class="sc">/</span>infinite_bep_52016<span class="sc">/</span>iso_52016_app<span class="sc">:</span>tag</span></code></pre></div>
 <p>Finally, start Database container. From server terminal cd into ./iso52016_database and run:</p>
-<pre><code>    ./scripts/createdb.sh</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="deployment.html#cb20-1" aria-hidden="true" tabindex="-1"></a>    .<span class="sc">/</span>scripts<span class="sc">/</span>createdb.sh</span></code></pre></div>
 </div>
 <div id="update-database" class="section level3 hasAnchor" number="4.3.3">
 <h3><span class="header-section-number">4.3.3</span> Update Database<a href="deployment.html#update-database" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In order to update database:</p>
 <p>From local terminal:</p>
 <ul>
-<li>login to GitLab</li>
+<li>log in to GitLab</li>
 <li>build and push iso_52016_app image</li>
 </ul>
 <p>From server terminal:</p>
 <ul>
-<li>login to GitLab</li>
-<li>pull iso_52016_app image</li>
-<li>run update script:<br />
-<code>./scripts/updatedb.sh</code></li>
+<li><p>log in to GitLab</p></li>
+<li><p>pull iso_52016_app image</p></li>
+<li><p>run update script:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="deployment.html#cb21-1" aria-hidden="true" tabindex="-1"></a>  .<span class="sc">/</span>scripts<span class="sc">/</span>updatedb.sh</span></code></pre></div></li>
 </ul>
 </div>
 </div>
 <div id="encome-front-end-and-back-end" class="section level2 hasAnchor" number="4.4">
 <h2><span class="header-section-number">4.4</span> Encome Front-end and Back-end<a href="deployment.html#encome-front-end-and-back-end" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now, we need to build Encome front-end and back-end images.</p>
-<p>First, from local and server terminal login to GitLab (<a href="deployment.html#gitlab-login">4.1.1</a>).</p>
+<p>First, from local and server terminal log in to GitLab (<a href="deployment.html#gitlab-login">4.1.1</a>).</p>
 <p>Then, we start to build Encome’s back-end.
 From local terminal cd into infinite_bep_52016/backend and run:</p>
-<pre><code>    docker build -t gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/encome-backend:tag .</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="deployment.html#cb22-1" aria-hidden="true" tabindex="-1"></a>    docker build <span class="sc">-</span>t gitlab.inf.unibz.it<span class="sc">:</span><span class="dv">4567</span><span class="sc">/</span>eeb<span class="sc">/</span>infinite_bep_52016<span class="sc">/</span>encome<span class="sc">-</span>backend<span class="sc">:</span>tag .</span></code></pre></div>
 <p>Build Encome’s front-end. From local terminal cd into MATRYCS_ECM/frontend and run:</p>
-<pre><code>    docker build -t gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/encome-frontend:tag .</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="deployment.html#cb23-1" aria-hidden="true" tabindex="-1"></a>    docker build <span class="sc">-</span>t gitlab.inf.unibz.it<span class="sc">:</span><span class="dv">4567</span><span class="sc">/</span>eeb<span class="sc">/</span>infinite_bep_52016<span class="sc">/</span>encome<span class="sc">-</span>frontend<span class="sc">:</span>tag .</span></code></pre></div>
 <p>Where tag is defined as in <a href="deployment.html#image-versioning">4.5.1</a></p>
 <p>Once the images are ready, we can push them. From local terminal run:</p>
-<pre><code>    docker push gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/encome-backend:tag
-    docker push gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/encome-frontend:tag</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="deployment.html#cb24-1" aria-hidden="true" tabindex="-1"></a>    docker push gitlab.inf.unibz.it<span class="sc">:</span><span class="dv">4567</span><span class="sc">/</span>eeb<span class="sc">/</span>infinite_bep_52016<span class="sc">/</span>encome<span class="sc">-</span>backend<span class="sc">:</span>tag</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="deployment.html#cb25-1" aria-hidden="true" tabindex="-1"></a>    docker push gitlab.inf.unibz.it<span class="sc">:</span><span class="dv">4567</span><span class="sc">/</span>eeb<span class="sc">/</span>infinite_bep_52016<span class="sc">/</span>encome<span class="sc">-</span>frontend<span class="sc">:</span>tag</span></code></pre></div>
 <p>Then, from production server pull all images:</p>
-<pre><code>    docker pull gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/encome-backend:tag
-    docker pull gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/encome-frontend:tag</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="deployment.html#cb26-1" aria-hidden="true" tabindex="-1"></a>    docker pull gitlab.inf.unibz.it<span class="sc">:</span><span class="dv">4567</span><span class="sc">/</span>eeb<span class="sc">/</span>infinite_bep_52016<span class="sc">/</span>encome<span class="sc">-</span>backend<span class="sc">:</span>tag</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="deployment.html#cb27-1" aria-hidden="true" tabindex="-1"></a>    docker pull gitlab.inf.unibz.it<span class="sc">:</span><span class="dv">4567</span><span class="sc">/</span>eeb<span class="sc">/</span>infinite_bep_52016<span class="sc">/</span>encome<span class="sc">-</span>frontend<span class="sc">:</span>tag</span></code></pre></div>
 <p>From root folder we need to copy to server:</p>
 <ul>
 <li>docker-compose.yml</li>
 <li>.evn file (generate new secret key)</li>
 </ul>
 <p>So, run:</p>
-<pre><code>    rsync docker-compose.yml &lt;your-username&gt;@193.106.181.3:/home/&lt;your-username&gt;/ 
-    rsync .env &lt;your-username&gt;@193.106.181.3:/home/&lt;your-username&gt;/ </code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="deployment.html#cb28-1" aria-hidden="true" tabindex="-1"></a>    rsync docker<span class="sc">-</span>compose.yml <span class="sc">&lt;</span>username<span class="sc">&gt;</span><span class="er">@</span><span class="dv">193</span>.<span class="dv">106</span>.<span class="fl">181.3</span><span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span><span class="er">&lt;</span>username<span class="sc">&gt;</span><span class="er">/</span> </span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="deployment.html#cb29-1" aria-hidden="true" tabindex="-1"></a>    rsync .env <span class="sc">&lt;</span>username<span class="sc">&gt;</span><span class="er">@</span><span class="dv">193</span>.<span class="dv">106</span>.<span class="fl">181.3</span><span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span><span class="er">&lt;</span>username<span class="sc">&gt;</span><span class="er">/</span> </span></code></pre></div>
 <p>Move this files to /home/tools.eeb/. From server terminal run:</p>
-<pre><code>    sudo mv docker-compose.yml /home/tools.eeb/
-    sudo mv .env /home/tools.eeb/</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="deployment.html#cb30-1" aria-hidden="true" tabindex="-1"></a>    sudo mv docker<span class="sc">-</span>compose.yml <span class="sc">/</span>home<span class="sc">/</span>tools.eeb<span class="sc">/</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="deployment.html#cb31-1" aria-hidden="true" tabindex="-1"></a>    sudo mv .env <span class="sc">/</span>home<span class="sc">/</span>tools.eeb<span class="sc">/</span></span></code></pre></div>
 <p>Make sure NGINX and database containers are running.
 Finally, start Encome containers. From server terminal cd into /home/tools.eeb and run:</p>
-<pre><code>    docker-compose up -d --build</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="deployment.html#cb32-1" aria-hidden="true" tabindex="-1"></a>    docker<span class="sc">-</span>compose up <span class="sc">-</span>d <span class="sc">--</span>build</span></code></pre></div>
 <div id="update-encome-front-end-and-back-end" class="section level3 hasAnchor" number="4.4.1">
 <h3><span class="header-section-number">4.4.1</span> Update Encome Front-end and Back-end<a href="deployment.html#update-encome-front-end-and-back-end" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In order to update Encome’s front-end or back-end:</p>
 <p>From local terminal:</p>
 <ul>
-<li>login to GitLab</li>
-<li>build fronted or/and backend image/s</li>
+<li>log in to GitLab</li>
+<li>build front-end or/and back-end image/s</li>
 <li>push image/s to GitLab</li>
 </ul>
 <p>From server terminal:</p>
 <ul>
-<li>login to GitLab</li>
-<li>stop Encome running containers.
-From /home/tools.eeb run:
-<code>docker-compose stop</code></li>
-<li>update tag in docker-compose.yml file</li>
-<li>finally, start containers. From /home/tools.eeb run:
-<code>docker-compose up -d</code></li>
+<li><p>log in to GitLab</p></li>
+<li><p>stop Encome running containers.
+From /home/tools.eeb run:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="deployment.html#cb33-1" aria-hidden="true" tabindex="-1"></a>    docker<span class="sc">-</span>compose stop</span></code></pre></div></li>
+<li><p>update tag in docker-compose.yml file</p></li>
+<li><p>finally, start containers. From /home/tools.eeb run:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="deployment.html#cb34-1" aria-hidden="true" tabindex="-1"></a>    docker<span class="sc">-</span>compose up <span class="sc">-</span>d</span></code></pre></div></li>
 </ul>
 </div>
 </div>
@@ -321,9 +380,9 @@ From /home/tools.eeb run:
 <div id="image-versioning" class="section level3 hasAnchor" number="4.5.1">
 <h3><span class="header-section-number">4.5.1</span> Image Versioning<a href="deployment.html#image-versioning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>All Docker images are tagged. The tag is defined as major.minor.bugfix.
-Exsample: 0.1.0</p>
+Example: 0.1.0</p>
 <p>Thereafter, in all commands you have to replace ‘tag’ with the appropriate one.
-Exsample:
+Example:
 New version contains bugfix, so tag changes from 1.2.6 to 1.2.7:</p>
 <pre><code>    # instead of
     #    docker push gitlab.inf.unibz.it:4567/eeb/infinite_bep_52016/encome-backend:tag
@@ -335,14 +394,14 @@ New version contains bugfix, so tag changes from 1.2.6 to 1.2.7:</p>
 <ul>
 <li>80 -&gt; NGINX (to be moved to 443)</li>
 <li>15432 -&gt; PostgreSQL database</li>
-<li>8000 -&gt; Encome backend</li>
-<li>8050 -&gt; Encome frontend</li>
+<li>8000 -&gt; Encome back-end</li>
+<li>8050 -&gt; Encome front-end</li>
 <li>5555 -&gt; Encome celery</li>
 <li>6379 -&gt; Encome redis</li>
 <li>8081 -&gt; Geoapp eebdatabase</li>
-<li>5000 -&gt; Geoapp fronted</li>
-<li>8086 -&gt; Geoapp backend
-<!-- - 8089 -> GdynaApp --></li>
+<li>5000 -&gt; Geoapp front-end</li>
+<li>8086 -&gt; Geoapp back-end</li>
+<li>8089 -&gt; GdynaApp</li>
 </ul>
 
 </div>
